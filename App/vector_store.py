@@ -1,16 +1,17 @@
 import faiss
 import numpy as np
 
-# Simple FAISS index stored in memory
-dimension = 384  # MiniLM's output dim
+dimension = 384
 index = faiss.IndexFlatL2(dimension)
 
+# Store original text chunks so we can retrieve them
+stored_chunks = []
+
 def save_embeddings(embeddings: np.ndarray, texts: list):
+    global stored_chunks
     index.add(embeddings)
-    # Optional: save texts separately or map index IDs
-    print(f"Stored {len(texts)} vectors.")
+    stored_chunks.extend(texts)
 
 def search_similar_chunks(query_vector: np.ndarray, k: int = 3):
     D, I = index.search(query_vector, k)
-    # In real app you'd map index IDs to text chunks. For now just return placeholders.
-    return [f"Relevant chunk {i}" for i in I[0]]
+    return [stored_chunks[i] for i in I[0] if i < len(stored_chunks)]
