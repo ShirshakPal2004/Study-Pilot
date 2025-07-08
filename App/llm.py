@@ -1,7 +1,7 @@
 import requests
 
 # Replace with your real key if you use OpenRouter
-API_KEY = "your-openrouter-api-key"
+API_KEY = "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"
 
 def generate_answer(question, context_chunks):
     context = "\n".join(context_chunks)
