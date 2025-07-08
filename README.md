@@ -1,12 +1,20 @@
-# StudyPilot – Day 1
+# StudyPilot – AI-Powered Academic Assistant
 
-An open-source academic assistant that allows you to upload PDFs, extract content, and store embeddings using FAISS for fast question-answering later.
+A free, open-source tool for students to upload their notes/PDFs and ask questions. Built with FastAPI, sentence-transformers, FAISS, and optionally connected to free LLM APIs like OpenRouter.
 
-## Features
-- Upload and parse academic PDFs
-- Generate embeddings using `sentence-transformers`
-- Store vectors locally using FAISS
+---
 
-## How to Use
-1. Clone the repo or upload files to GitHub
-2. Run the server:
+## ✨ Features
+
+- 📄 Upload academic PDFs
+- 📚 Extract & embed content using sentence-transformers
+- 🔍 Search notes using semantic similarity
+- 🤖 Ask questions and get context-aware answers using free LLMs
+
+---
+
+## 🚀 Run Locally
+
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
